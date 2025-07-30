@@ -1,0 +1,15 @@
+# Ignore all .exe files
+*.exe
+
+# Ignore build artifacts
+*.o
+*.obj
+*.out
+*.a
+*.so
+*.dll
+
+# Ignore VSCode settings and build folders
+.vscode/
+build/
+dist/
