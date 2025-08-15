@@ -17,7 +17,7 @@ public:
     }
 };
 
-Node* reverseALL(Node* head){
+Node* reverseALLIterative(Node* head){
     Node* temp = head;
     Node* prev = NULL;
 
@@ -29,6 +29,21 @@ Node* reverseALL(Node* head){
     }
     return prev;
 }
+
+Node* reverseLLRecursive(Node* head){
+    //Base Condition
+    if(head == NULL || head->next == NULL){
+        return head;
+    }
+
+    Node* newHead = reverseLLRecursive(head->next);
+    Node* front = head->next;
+    front->next = head;
+    head->next = NULL;
+
+    return newHead;
+}
+
 
 // Helper function to print linked list
 void printList(Node* head) {
@@ -50,7 +65,8 @@ int main(){
     printList(head);
 
     // Reverse the linked list
-    head = reverseALL(head);
+    // head = reverseALLIterative(head);
+    head = reverseLLRecursive(head);
 
     cout << "Reversed List: ";
     printList(head);
